@@ -500,7 +500,6 @@ public class Main {
                 return;
             }
 
-            // 2. Create and train the face generator
             System.out.println("\nInitializing face generator...");
             int imageSize = width * height * 3; // RGB channels
             FaceGenerator generator = new FaceGenerator(imageSize, latentSize, learningRate);
@@ -508,11 +507,10 @@ public class Main {
             System.out.println("Starting training with " + dataset.size() + " images...");
             generator.train(dataset, epochs);
 
-            // 3. Generate new faces
             System.out.println("\nGenerating new faces...");
             for (int i = 0; i < 5; i++) {
                 Matrix randomZ = new Matrix(latentSize, 1);
-                randomZ.randomize(-2, 2); // Sample from latent space
+                randomZ.randomize(-2, 2);
 
                 Matrix generated = generator.decode(randomZ);
                 BufferedImage output = matrixToImage(generated, width, height);
@@ -521,7 +519,6 @@ public class Main {
                 System.out.println("Saved: " + outputPath);
             }
 
-            // 4. Create face morph between first two training images
             System.out.println("\nCreating face morph...");
             Matrix face1 = dataset.get(0);
             Matrix face2 = dataset.get(1);
@@ -555,7 +552,6 @@ public class Main {
         }
     }
 
-    // Helper method to load all images from a directory
     private static List<Matrix> loadImageDataset(String dirPath, int width, int height) throws Exception {
         List<Matrix> dataset = new ArrayList<>();
         File imageDir = new File(dirPath);
@@ -592,7 +588,6 @@ public class Main {
         return dataset;
     }
 
-    // Helper method for vector interpolation
     private static Matrix interpolateVectors(Matrix a, Matrix b, double alpha) {
         Matrix result = new Matrix(a.rows, a.cols);
         for (int i = 0; i < a.rows; i++) {
