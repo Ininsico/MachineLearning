@@ -3,20 +3,17 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from tqdm import tqdm  # For progress bars
-from time import sleep  # For simulated training delay
+from tqdm import tqdm 
+from time import sleep 
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 
-# ======================================================================
-# 1. FILE LOADING WITH ANIMATED PROGRESS
-# ======================================================================
 def load_data_with_progress():
     """Loads data with visual progress indicators"""
     print("🔍 Locating dataset...")
     for _ in tqdm(range(3), desc="Checking files"):
-        sleep(0.2)  # Simulate file search
+        sleep(0.2) 
     
     if 'final_dataset.csv' not in os.listdir():
         raise FileNotFoundError("❌ final_dataset.csv not found!")
@@ -24,7 +21,7 @@ def load_data_with_progress():
     print("\n📂 Loading data...")
     with tqdm(total=100, desc="Progress") as pbar:
         data = pd.read_csv("final_dataset.csv")
-        pbar.update(30)  # Simulate loading progress
+        pbar.update(30) 
         sleep(0.5)
         pbar.update(70)
     print("✅ Data loaded successfully!\n")
