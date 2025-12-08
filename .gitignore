@@ -1,0 +1,213 @@
+# ============================
+# 🔥 FULL ML + MERN GITIGNORE 🔥
+# ============================
+
+########################################
+#     MACHINE LEARNING / PYTHON
+########################################
+
+# Datasets
+data/
+datasets/
+*.csv
+*.tsv
+*.txt
+*.json
+*.jsonl
+*.parquet
+*.h5
+*.hdf5
+*.npz
+*.npy
+*.pkl
+*.pickle
+*.zip
+*.gz
+*.tar
+*.tar.gz
+*.tgz
+*.pt
+# Checkpoints / Models
+checkpoints/
+*.pth
+*.bin
+*.model
+*.safetensors
+
+# Training outputs
+out/
+outputs/
+runs/
+logs/
+tensorboard/
+wandb/
+wandb/**
+lightning_logs/
+mlruns/
+results/
+experiments/
+
+# Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.cache/
+*.cache
+.cache-*/
+pip-wheel-metadata/
+.ipynb_checkpoints/
+tmp/
+temp/
+temp*/
+
+# HuggingFace / Tokenizer files
+*.arrow
+**/tokenizer.json
+**/tokenizer.model
+**/vocab.json
+**/merges.txt
+**/special_tokens_map.json
+**/added_tokens.json
+
+# Kaggle
+/kaggle/
+/kaggle/input/
+/kaggle/output/
+/kaggle/working/
+/kaggle/temp/
+
+########################################
+#     MERN / JAVASCRIPT / NODE
+########################################
+
+# Core node ignore
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+pnpm-lock.yaml
+
+# Generated builds
+build/
+dist/
+out/
+
+# React dev cache
+*.cache
+.cache/
+.next/
+.vercel/
+.nuxt/
+storybook-static/
+
+# Env files (NEVER commit)
+.env
+.env.*
+*.env
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# DB dumps
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.realm
+*.realm.lock
+
+# Backend temp
+tmp/
+temp/
+uploads/
+public/uploads/
+storage/
+media/
+uploads/
+
+########################################
+#     MONGO / EXPRESS / SERVER-SIDE
+########################################
+
+# PM2 logs
+.pids/
+*.pid
+
+# Express ephemeral
+sessions/
+*.pem
+*.crt
+*.key
+
+########################################
+#     FRONTEND / REACT
+########################################
+
+# React build + caches
+build/
+.cache/
+*.cache
+*.webp
+*.map
+
+# Static asset junk
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.bmp
+*.ico
+*.webp
+*.tiff
+*.mp4
+*.avi
+*.mov
+*.webm
+
+########################################
+#     OS / IDE / EDITOR JUNK
+########################################
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*.swp
+*.swo
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+########################################
+#   COMPILED / BUILD / LIBRARIES
+########################################
+
+*.so
+*.dll
+*.dylib
+*.o
+*.obj
+
+########################################
+#     NANO GPT / GPT TRAINING
+########################################
+
+out-shakespeare-char/
+out-*/
+*__pycache__/
+*.bak
+*.tmp
+*.swp

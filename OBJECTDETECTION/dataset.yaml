@@ -1,0 +1,19 @@
+names:
+- laptop
+- batman_sticker
+- prayer_mat
+- cupboard
+- books
+- steamer
+- chair
+- clothes
+- printer
+- crack
+- stool
+- calendar
+- pen
+- socket
+nc: 14
+path: /kaggle/working/dataset
+train: images/train
+val: images/val
