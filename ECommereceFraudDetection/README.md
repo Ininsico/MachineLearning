@@ -250,6 +250,7 @@ NUST College of E&ME for academic guidance
 
 CS-117 course team for project supervision
 
+Made by Bilal Ahmed Rathore
 Open-source community for Python libraries and tools
 
 <div align="center">
@@ -258,3 +259,4 @@ Made with ❤️ for CS-117: Applications of ICT
 NUST College of Electrical & Mechanical Engineering • 2025
 
 </div> ```
+
