@@ -9,10 +9,6 @@
 # Datasets
 data/
 datasets/
-*.csv
-*.tsv
-*.txt
-*.json
 *.jsonl
 *.parquet
 *.h5

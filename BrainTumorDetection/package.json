@@ -1,0 +1,39 @@
+{
+  "name": "braintumordetection",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start-react": "vite",
+    "build-react": "vite build",
+    "start-node": "node backend.js",
+    "start-python": "python server.py",
+    "install-python-deps": "pip install -r requirements.txt",
+    "install-all": "npm install && npm run install-python-deps",
+    "dev": "concurrently -n \"PYTHON,NODE,REACT\" -c \"bgBlue.bold,bgGreen.bold,bgMagenta.bold\" \"npm run start-python\" \"npm run start-node\" \"npm run start-react\"",
+    "prod": "npm run build-react && concurrently \"npm run start-python\" \"npm run start-node\""
+  },
+  "dependencies": {
+    "axios": "^1.11.0",
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "form-data": "^4.0.4",
+    "framer-motion": "^12.23.12",
+    "multer": "^2.0.2",
+    "node-fetch": "^3.3.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "vite": "^7.1.2"
+  }
+}
