@@ -81,7 +81,7 @@ E-Commerce-Fraud-Detection/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/ininsico/MachineLearning/ECommereceFraudDetection.git
+   git clone https://github.com/Ininsico/MachineLearning/tree/main/ECommereceFraudDetection.git
    cd ECommereceFraudDetection
 
 2. **Install dependencies**
