@@ -1,0 +1,105 @@
+# Model Architecture Configuration
+model:
+  name: "CustomLM-300M"
+  architecture: "transformer_decoder"
+  
+  # Model dimensions
+  vocab_size: 50257
+  n_positions: 2048  # Maximum sequence length
+  n_embd: 1024       # Embedding dimension
+  n_layer: 24        # Number of transformer layers
+  n_head: 16         # Number of attention heads
+  n_inner: 4096      # FFN inner dimension
+  
+  # Regularization
+  embd_pdrop: 0.1
+  resid_pdrop: 0.1
+  attn_pdrop: 0.1
+  layer_norm_epsilon: 1e-5
+  
+  # Activation
+  activation_function: "gelu_new"
+  
+  # Initialization
+  initializer_range: 0.02
+  
+  # Total parameters: 300,124,416
+
+# Training Configuration
+training:
+  # Hardware
+  device: "cuda"
+  num_gpus: 4
+  mixed_precision: true
+  gradient_checkpointing: false
+  
+  # Batch settings
+  batch_size: 128           # Per GPU
+  gradient_accumulation_steps: 4
+  effective_batch_size: 512  # 128 * 4 GPUs
+  
+  # Optimization
+  learning_rate: 6.0e-4
+  weight_decay: 0.1
+  beta1: 0.9
+  beta2: 0.95
+  epsilon: 1.0e-8
+  max_grad_norm: 1.0
+  
+  # Learning rate schedule
+  lr_scheduler_type: "cosine"
+  warmup_steps: 2000
+  total_steps: 100000
+  min_lr_ratio: 0.1
+  
+  # Logging
+  logging_steps: 100
+  eval_steps: 1000
+  save_steps: 10000
+  
+  # Checkpointing
+  save_total_limit: 5
+  checkpoint_dir: "checkpoints"
+  
+  # Early stopping
+  early_stopping_patience: 5
+  early_stopping_threshold: 0.001
+
+# Data Configuration
+data:
+  # Paths
+  train_data_path: "data/processed/train"
+  val_data_path: "data/processed/validation"
+  
+  # Processing
+  max_seq_length: 2048
+  num_workers: 8
+  prefetch_factor: 2
+  
+  # Dataset composition
+  datasets:
+    - name: "books"
+      weight: 0.35
+      size_gb: 15
+    - name: "wikipedia"
+      weight: 0.25
+      size_gb: 10
+    - name: "web_text"
+      weight: 0.20
+      size_gb: 8
+    - name: "code"
+      weight: 0.10
+      size_gb: 3
+    - name: "conversations"
+      weight: 0.10
+      size_gb: 2
+  
+  total_size_gb: 38
+
+# Tokenizer Configuration
+tokenizer:
+  type: "BPE"
+  vocab_size: 50257
+  min_frequency: 3
+  special_tokens:
+    - "
