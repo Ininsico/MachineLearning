@@ -11,13 +11,13 @@ import torch.nn.functional as F
 from sklearn.metrics import classification_report, confusion_matrix
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-MODEL_PATH = 'Vbai-2.5/model/path'
+MODEL_PATH = 'C:\\Users\\arsla\\.cache\\kagglehub\\models\\eyppler\\vbai-2-5\\pyTorch\\2.5f-fast\\1\\Vbai-2.5f.pt'
 MODEL_TYPE = 'f'
 
-DEMENTIA_DIR = 'dementia/data/dir'
-TUMOR_DIR = 'tumor/data/dir'
+DEMENTIA_DIR = 'C:\\Users\\arsla\\Desktop\\MachineLearning\\BrainTumorDetection\\data\\dementia'
+TUMOR_DIR = 'C:\\Users\\arsla\\Desktop\\MachineLearning\\BrainTumorDetection\\data\\tumor'
 
-TEST_IMAGE_PATH = 'single/test/image/file'
+TEST_IMAGE_PATH = 'download.jpg'
 
 DEM_CLASSES = ['AD Alzheimer Diseases', 'AD Mild Demented', 'AD Moderate Demented',
                'AD Very Mild Demented', 'CN Non Demented', 'PD Parkinson Diseases']
