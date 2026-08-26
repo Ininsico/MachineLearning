@@ -237,3 +237,7 @@ saved_model/
 *.flac
 *.ogg
 *.m4a
+
+# Large data files (do not commit)
+ANOMALY_DETECTION_FOR_IOT/02-14-2018.csv
+

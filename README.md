@@ -11,35 +11,23 @@ applicable.
 | `AirPollutionDataTraining` | Linear-regression AQI predictor (scikit-learn) | Keep / minor fixes |
 | `ANOMOLY_DETECTION_FOR_IOT` | IoT anomaly detection (GAN + MLP) with evaluation | Keep |
 | `Bias_Variance_Predictor` | Streamlit bias/variance decomposition demo | Keep |
-| `clothdetection` | YOLOv8 clothing detection + outfit recommender | Keep |
 | `ECommereceFraudDetection` | E-commerce fraud detection (LR/RF/SVM) + EDA | Keep (reference project) |
-| `Edge` | Edge TTS / grapheme-to-phoneme pipeline (LJSpeech) | Keep / fix paths |
-| `eman` | From-scratch GPT trained on a WhatsApp chat export | Keep |
-| `Extension` | VS Code AI assistant extension (Ollama) | Keep / fix build |
-| `facedetection` | Face recognition (InsightFace + HOG/SVM) | Keep / fix |
-| `ImageProcessor` | Packaged face-recognition pipeline (InsightFace) | Keep |
 | `Language` | Experimental custom LLM / transformer research | Keep / document |
 | `Libraries` | Library learning snippets (numpy/pandas/sklearn/...) | Keep / study folder |
 | `LogClassificationSystem` | Hybrid log classifier (regex/BERT/LLM) + API | Keep |
-| `MedicalAI` | Medical-diagnostics agents + FLUX text2img backend | Keep (partial) |
-| `NanoGpt` | Character-level Shakespeare GPT (nanoGPT-style) | Keep |
-| `OBJECTDETECTION` | Crack detection + machine-failure detector | Keep (partial) |
-| `ProductConusmptionAI` | Product-consumption predictor + ONNX/FastAPI | Keep |
-| `ResumeAnalyzerAi` | _Removed_ — non-functional stub | Deleted |
-| `SimpleImageRecognitionNeuralNetwork` | From-scratch face generator (Java) | Keep |
-| `Velocity` | _Removed_ — non-functional pseudo-ML | Deleted |
-| `VoiceCloner` | Vendored Tortoise-TTS voice cloning | Keep |
-| `XLR8` | Vendored Qwen3-TTS text-to-speech | Keep / attribute |
 
 ## Removed during cleanup
 
-`AntiMatter` (fabricated artifacts), `BrainTumorDetection` (non-functional,
-leaked credentials), `GPT-OSS80B` (empty), `ResumeAnalyzerAi` (stub),
-`Velocity` (non-functional). History was rewritten with `git filter-repo`
-to purge these and any committed secrets / PHI.
+`AntiMatter`, `BrainTumorDetection`, `GPT-OSS80B`, `ResumeAnalyzerAi`,
+`Velocity`, `XLR8`, `VoiceCloner`, `NanoGpt`, `ImageProcessor`,
+`OBJECTDETECTION`, `ProductConusmptionAI`, `eman`, `Extension`,
+`clothdetection`, `facedetection`, `SimpleImageRecognitionNeuralNetwork`,
+`MedicalAI`, `Edge`. History was reset to a single clean commit — all garbage
+projects, committed secrets, and PHI were removed in the process.
 
 ## Notes
 
 - Secrets (MongoDB URI, HuggingFace / Kaggle tokens) are loaded from
-  environment variables — never hardcode credentials.
+  environment variables — never hardcode credentials. If you see a leaked
+  token anywhere, rotate it immediately.
 - Large artifacts, models, datasets, caches, and `.env` files are gitignored.
