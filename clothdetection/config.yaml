@@ -1,0 +1,183 @@
+project:
+  name: "ClothMind AI"
+  version: "1.0.0"
+  description: "AI-powered clothing detection, color analysis, and outfit recommendation system"
+
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  samples: "data/samples"
+  dataset: "datasets/clothing"
+  models: "models"
+  trained_models: "models/trained"
+  output: "output"
+
+yolo:
+  model: "yolov8n.pt"
+  imgsz: 640
+  conf_threshold: 0.5
+  iou_threshold: 0.45
+  device: "cpu"
+  epochs: 50
+  batch: 16
+  lr: 0.001
+  augment: true
+
+clothing:
+  categories:
+    tops:
+      - t-shirt
+      - shirt
+      - blouse
+      - sweater
+      - hoodie
+      - jacket
+      - coat
+      - tank_top
+    bottoms:
+      - jeans
+      - trousers
+      - shorts
+      - skirt
+      - leggings
+    full_body:
+      - dress
+      - gown
+      - overalls
+      - jumpsuit
+    footwear:
+      - sneakers
+      - shoes
+      - boots
+      - sandals
+      - heels
+    accessories:
+      - hat
+      - cap
+      - glasses
+      - sunglasses
+      - scarf
+      - bag
+      - backpack
+      - watch
+      - belt
+      - necklace
+      - earrings
+
+  colors:
+    - name: "Red"
+      rgb: [255, 0, 0]
+      hex: "#FF0000"
+    - name: "Blue"
+      rgb: [0, 0, 255]
+      hex: "#0000FF"
+    - name: "Green"
+      rgb: [0, 128, 0]
+      hex: "#008000"
+    - name: "Black"
+      rgb: [0, 0, 0]
+      hex: "#000000"
+    - name: "White"
+      rgb: [255, 255, 255]
+      hex: "#FFFFFF"
+    - name: "Gray"
+      rgb: [128, 128, 128]
+      hex: "#808080"
+    - name: "Brown"
+      rgb: [139, 69, 19]
+      hex: "#8B4513"
+    - name: "Yellow"
+      rgb: [255, 255, 0]
+      hex: "#FFFF00"
+    - name: "Orange"
+      rgb: [255, 165, 0]
+      hex: "#FFA500"
+    - name: "Pink"
+      rgb: [255, 192, 203]
+      hex: "#FFC0CB"
+    - name: "Purple"
+      rgb: [128, 0, 128]
+      hex: "#800080"
+    - name: "Navy"
+      rgb: [0, 0, 128]
+      hex: "#000080"
+    - name: "Beige"
+      rgb: [245, 245, 220]
+      hex: "#F5F5DC"
+    - name: "Maroon"
+      rgb: [128, 0, 0]
+      hex: "#800000"
+    - name: "Teal"
+      rgb: [0, 128, 128]
+      hex: "#008080"
+    - name: "Coral"
+      rgb: [255, 127, 80]
+      hex: "#FF7F50"
+    - name: "Olive"
+      rgb: [128, 128, 0]
+      hex: "#808000"
+    - name: "Cyan"
+      rgb: [0, 255, 255]
+      hex: "#00FFFF"
+    - name: "Lavender"
+      rgb: [230, 230, 250]
+      hex: "#E6E6FA"
+    - name: "Gold"
+      rgb: [255, 215, 0]
+      hex: "#FFD700"
+
+recommendation:
+  moods:
+    happy: { style: "casual", colors: ["Yellow", "Orange", "Pink", "Coral"], vibe: "cheerful" }
+    sad: { style: "comfortable", colors: ["Blue", "Gray", "Navy", "Beige"], vibe: "calming" }
+    energetic: { style: "sporty", colors: ["Red", "Orange", "Cyan", "Green"], vibe: "dynamic" }
+    relaxed: { style: "casual", colors: ["Beige", "Green", "Lavender", "Gray"], vibe: "peaceful" }
+    confident: { style: "formal", colors: ["Black", "Navy", "Maroon", "White"], vibe: "powerful" }
+    romantic: { style: "elegant", colors: ["Pink", "Red", "Purple", "Lavender"], vibe: "romantic" }
+    creative: { style: "artistic", colors: ["Purple", "Teal", "Coral", "Gold"], vibe: "expressive" }
+    professional: { style: "formal", colors: ["Navy", "Gray", "White", "Black"], vibe: "professional" }
+    adventurous: { style: "outdoor", colors: ["Olive", "Brown", "Green", "Orange"], vibe: "adventurous" }
+    cozy: { style: "comfortable", colors: ["Brown", "Beige", "Gray", "Maroon"], vibe: "warm" }
+
+  weather:
+    hot: { avoid: ["coat", "jacket", "hoodie", "sweater"], recommend: ["t-shirt", "tank_top", "shorts", "dress", "sandals"], layers: "minimal" }
+    cold: { avoid: ["tank_top", "shorts", "sandals"], recommend: ["coat", "jacket", "sweater", "hoodie", "boots"], layers: "heavy" }
+    rainy: { avoid: ["suede", "light fabrics"], recommend: ["jacket", "boots", "hat"], layers: "waterproof" }
+    mild: { styles: ["casual", "smart casual"], layers: "light" }
+
+  seasons:
+    summer: { colors: ["Yellow", "Orange", "Pink", "White", "Cyan"], fabrics: ["cotton", "linen", "silk"] }
+    winter: { colors: ["Navy", "Gray", "Maroon", "Black", "White"], fabrics: ["wool", "cashmere", "leather"] }
+    spring: { colors: ["Green", "Pink", "Lavender", "Beige", "Coral"], fabrics: ["cotton", "denim", "light wool"] }
+    fall: { colors: ["Brown", "Orange", "Olive", "Maroon", "Gold"], fabrics: ["wool", "leather", "denim"] }
+
+  color_harmony:
+    complementary:
+      - - "Red"
+        - "Green"
+      - - "Blue"
+        - "Orange"
+      - - "Yellow"
+        - "Purple"
+      - - "Cyan"
+        - "Coral"
+    analogous:
+      - - "Blue"
+        - "Teal"
+        - "Green"
+      - - "Red"
+        - "Orange"
+        - "Yellow"
+      - - "Purple"
+        - "Pink"
+        - "Coral"
+    monochromatic:
+      - - "Black"
+        - "Gray"
+        - "White"
+      - - "Navy"
+        - "Blue"
+        - "Cyan"
+      - - "Maroon"
+        - "Red"
+        - "Pink"

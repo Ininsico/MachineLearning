@@ -1,0 +1,48 @@
+{
+  "name": "antimatter-ai-assistant",
+  "displayName": "AntiMatter AI",
+  "description": "Your local AntiMatter AI model integrated into VS Code",
+  "version": "1.0.0",
+  "publisher": "your-name",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "AI",
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onCommand:antimatter.start"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "antimatter.start",
+        "title": "Open AntiMatter AI Assistant"
+      },
+      {
+        "command": "antimatter.explain",
+        "title": "Explain this code with AntiMatter"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "antimatter.start",
+        "key": "ctrl+shift+a",
+        "mac": "cmd+shift+a"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "antimatter.explain",
+          "group": "1_modification"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "node -e \"console.log('Ready')\""
+  }
+}

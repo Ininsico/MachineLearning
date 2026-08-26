@@ -1,0 +1,29 @@
+student_id,semester,course_code,course_title,credits,marks,lg,gp,course_type,is_retake
+7,1,CSC101,Applications of Information and Communication Technologies,3,61,C,2.0,non_prog,0
+7,1,CSC102,Discrete Structures,3,66,C+,2.33,non_prog,0
+7,1,HUM104,Functional English,3,74,B,3.0,non_prog,0
+7,1,HUM112,Islamic Studies,2,80,A-,3.66,non_prog,0
+7,1,HUM122,Fundamentals of Psychology,2,76,B+,3.33,non_prog,0
+7,1,PHY124,Applied Physics,3,76,B+,3.33,non_prog,0
+7,2,CSC103,Programming Fundamentals,4,68,B-,2.66,prog,0
+7,2,EEE240,Fundamentals of Digital Logic Design,3,86,A,4.0,non_prog,0
+7,2,HUM113,Ideology and Constitution of Pakistan,2,70,B-,2.66,non_prog,0
+7,2,HUM120,Expository Writing,3,71,B,3.0,non_prog,0
+7,2,HUM208,Civics and Community Engagement,2,72,B,3.0,non_prog,0
+7,2,MGT250,Introduction to Entrepreneurship,2,71,B,3.0,non_prog,0
+7,3,CSC210,Professional Practices,2,68,B-,2.66,non_prog,0
+7,3,CSC241,Object Oriented Programming,4,72,B,3.0,prog,0
+7,3,CSC270,Database Systems,4,77,B+,3.33,non_prog,0
+7,3,CSC275,Computer Networks,3,72,B,3.0,non_prog,0
+7,3,MTH104,Calculus and Analytic Geometry,3,81,A-,3.66,non_prog,0
+7,4,CSC211,Data Structures,4,80,A-,3.66,prog,0
+7,4,CSC262,Artificial Intelligence,3,83,A-,3.66,prog,0
+7,4,CSC291,Software Engineering,3,75,B+,3.33,prog,0
+7,4,CSC323,Operating Systems,3,81,A-,3.66,prog,0
+7,4,CSC336,Web Technologies,3,81,A-,3.66,prog,0
+7,5,CSC232,Information Security,3,73,B,3.0,non_prog,0
+7,5,CSC312,Theory of Automata,3,79,B+,3.33,non_prog,0
+7,5,CSC325,Computer Organization and Assembly Language,3,74,B,3.0,non_prog,0
+7,5,CSC412,Advanced Programming,3,81,A-,3.66,prog,0
+7,5,CSE305,Software Requirement Engineering,3,73,B,3.0,non_prog,0
+7,5,MTH105,Multivariable Calculus,3,75,B+,3.33,non_prog,0

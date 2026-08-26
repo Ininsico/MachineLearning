@@ -1,0 +1,12 @@
+import numpy as np
+aq = np.array([1,2,3])
+be = np.array([4,5,6])
+zeros = np.zeros((3,4))
+ones = np.ones((5,4))
+empty = np.empty((4,5))
+full = np.full((2,3),5)
+i = np.eye(3)
+range = np.arange(0,10,4)
+a = np.array([[1, 2, 3], [4, 5, 6]])
+b = np.array([10, 20, 30])
+arr = np.array([[1, 2, 3], [4, 5, 6]])
