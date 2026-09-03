@@ -42,6 +42,7 @@ __pycache__/
 .cache-*/
 pip-wheel-metadata/
 .ipynb_checkpoints/
+ANOMOLY_DETECTION_FOR_IOT/*.csv
 tmp/
 temp/
 temp*/
