@@ -1,0 +1,33 @@
+# Raw / large data (re-extract from neo.csv.zip or download source)
+data/
+
+# Trained model artifacts (retrain via train.py)
+models/
+*.joblib
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# Plots / generated outputs
+*.png
+*.jpg
+*.jpeg
+*.svg
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual envs
+venv/
+.venv/
+env/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
