@@ -1,0 +1,8 @@
+genus,metal,efficiency_pct,species_or_isolate,evidence_level,needs_verification,source_note
+Raoultella,Pb,89.0,unspecified,quantitative_removal,FALSE,"User-supplied literature value"
+Raoultella,Cd,67.0,unspecified,quantitative_removal,FALSE,"User-supplied literature value"
+Raoultella,Cr,63.4,unspecified,quantitative_removal,FALSE,"User-supplied literature value"
+Raoultella,Ni,55.6,unspecified,quantitative_removal,FALSE,"User-supplied literature value"
+Pseudomonas,Cu,80.0,unspecified,quantitative_removal,FALSE,"User-supplied literature value (EPS-mediated)"
+Bacillus,As,99.9,arsenate As(V),quantitative_removal,FALSE,"User-supplied literature value"
+Bacillus,As,90.0,arsenite As(III),quantitative_removal,FALSE,"User-supplied literature value"

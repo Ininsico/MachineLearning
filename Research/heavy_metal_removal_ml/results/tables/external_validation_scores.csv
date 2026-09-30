@@ -1,0 +1,3 @@
+sample_id,scorable,predicted_activity_score,ci_low,ci_high,null_mean,null_p_value,documented_active_fraction,annotated_fraction_of_community,taxonomy_coverage,n_scored_genera,note
+OS,True,0.9946827292442322,0.9946827292442322,0.9946827292442322,0.9946827292442322,1.0,1.0,0.32120000000000004,0.3991053677932406,1,"only one genus was scorable, so the bootstrap confidence interval is degenerate (zero width) and the shuffled null is uninformative"
+SM,False,,,,,,,,0.0,0,"none of the 1 genera in SM occur in the training taxonomy (114 genera), so the trained classifier cannot score this sample"

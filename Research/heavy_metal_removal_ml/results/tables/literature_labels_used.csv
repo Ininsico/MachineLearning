@@ -1,0 +1,45 @@
+genus,phylum,label,evidence_level,mechanism,needs_verification,source_note
+Raoultella,Proteobacteria,1,quantitative_removal,biosorption; EPS complexation,False,"User-supplied literature values: 89% Pb, 67% Cd, 63.4% Cr, 55.6% Ni"
+Pseudomonas,Proteobacteria,1,quantitative_removal,extracellular polymeric substances (EPS) binding,False,User-supplied literature value: 80% Cu removal via EPS
+Bacillus,Firmicutes,1,quantitative_removal,sporulation-assisted biosorption; redox transformation,False,"User-supplied literature values: 99.9% arsenate, 90% arsenite"
+Klebsiella,Proteobacteria,1,qualitative_removal,biosorption; EPS; metal efflux,True,User-specified positive. Widely reported metal-tolerant; exact efficiencies require primary-literature verification.
+Enterobacter,Proteobacteria,1,qualitative_removal,biosorption; EPS; bioaccumulation,True,User-specified positive. Widely reported metal-tolerant; exact efficiencies require primary-literature verification.
+Delftia,Proteobacteria,1,qualitative_removal,biosorption; metabolic degradation co-benefit,True,User-specified positive. Metal tolerance reported; exact efficiencies require primary-literature verification.
+Chryseobacterium,Bacteroidetes,1,qualitative_removal,biosorption,True,User-specified positive. Metal tolerance reported; exact efficiencies require primary-literature verification.
+Microvirgula,Proteobacteria,0,no_documentation_found,none,False,"User-specified in-house taxon (M. curvata). No heavy-metal removal/tolerance documentation located; labelled 0 (undocumented, NOT proven incapable)."
+Acinetobacter,Proteobacteria,1,tolerance_only,biosorption; metal efflux,True,Genus repeatedly reported in metal-contaminated wastewater communities. Tolerance well established; removal efficiency unverified here.
+Arthrobacter,Actinobacteria,1,qualitative_removal,biosorption; intracellular accumulation,True,Actinobacterial metal biosorption is extensively reported. Efficiency unverified here.
+Rhodococcus,Actinobacteria,1,qualitative_removal,biosorption; biotransformation of organometals,True,Metal tolerance and biosorption reported. Efficiency unverified here.
+Micrococcus,Actinobacteria,1,tolerance_only,biosorption,True,Metal-tolerant Gram-positive cocci reported in contaminated sites. Efficiency unverified here.
+Streptomyces,Actinobacteria,1,tolerance_only,biosorption,True,Actinobacterial metal tolerance reported. Efficiency unverified here.
+Corynebacterium,Actinobacteria,1,tolerance_only,biosorption,True,Metal tolerance reported. Efficiency unverified here.
+Shewanella,Proteobacteria,1,qualitative_removal,"reductive metal transformation (e.g. Cr(VI), U(VI), Se(IV))",True,Dissimilatory metal-reducing model organism; reduction well documented. Removal efficiency unverified here.
+Geobacter,Proteobacteria,1,qualitative_removal,dissimilatory metal reduction; precipitation,True,Metal reduction and precipitation documented. Efficiency unverified here.
+Desulfovibrio,Proteobacteria,1,qualitative_removal,sulfate reduction-driven metal sulfide precipitation,True,Sulfidogenic metal precipitation well documented. Efficiency unverified here.
+Desulfobulbus,Proteobacteria,1,qualitative_removal,sulfate reduction-driven metal sulfide precipitation,True,Sulfidogenic metal precipitation well documented. Efficiency unverified here.
+Cupriavidus,Proteobacteria,1,qualitative_removal,metal efflux; intracellular sequestration; EPS,True,Model organism for metal resistance (e.g. C. metallidurans). Efficiency unverified here.
+Ralstonia,Proteobacteria,1,tolerance_only,metal efflux,True,Metal resistance reported. Efficiency unverified here.
+Burkholderia,Proteobacteria,1,tolerance_only,biosorption; efflux,True,Metal tolerance reported. Efficiency unverified here.
+Comamonas,Proteobacteria,1,tolerance_only,biosorption,True,Metal tolerance reported. Efficiency unverified here.
+Alcaligenes,Proteobacteria,1,tolerance_only,biosorption,True,Metal tolerance reported. Efficiency unverified here.
+Achromobacter,Proteobacteria,1,tolerance_only,biosorption,True,Metal tolerance reported. Efficiency unverified here.
+Acidovorax,Proteobacteria,1,tolerance_only,biosorption,True,Metal tolerance reported. Efficiency unverified here.
+Ochrobactrum,Proteobacteria,1,qualitative_removal,biosorption; intracellular accumulation,True,Metal biosorption reported. Efficiency unverified here.
+Brevundimonas,Proteobacteria,1,tolerance_only,biosorption,True,Metal tolerance reported. Efficiency unverified here.
+Sphingomonas,Proteobacteria,1,tolerance_only,biosorption,True,Metal tolerance reported. Efficiency unverified here.
+Stenotrophomonas,Proteobacteria,1,qualitative_removal,biosorption; ureolytic carbonate precipitation,True,Metal tolerance and biosorption reported. Efficiency unverified here.
+Aeromonas,Proteobacteria,1,tolerance_only,biosorption,True,Metal tolerance reported. Efficiency unverified here.
+Citrobacter,Proteobacteria,1,qualitative_removal,biosorption; ureolytic carbonate precipitation,True,Metal tolerance and precipitation reported. Efficiency unverified here.
+Serratia,Proteobacteria,1,tolerance_only,biosorption,True,Metal tolerance reported. Efficiency unverified here.
+Proteus,Proteobacteria,1,tolerance_only,biosorption,True,Metal tolerance reported. Efficiency unverified here.
+Zoogloea,Proteobacteria,1,tolerance_only,EPS-rich floc binding,True,Activated-sludge floc former; EPS metal binding plausible but unverified here.
+Thiobacillus,Proteobacteria,1,qualitative_removal,acidophilic metal solubilisation/immobilisation; sulfide oxidation,True,Sulfur-oxidising genus central to metal mobilisation in acid mine systems. Net removal context-dependent.
+Leptothrix,Proteobacteria,1,qualitative_removal,iron/manganese oxide biogenic precipitation,True,Biogenic Mn/Fe oxide formation well documented. Net metal removal context-dependent.
+Gallionella,Proteobacteria,1,qualitative_removal,iron oxide biogenic precipitation,True,Iron-oxidising genus; oxide precipitation documented. Efficiency unverified here.
+Desulfitobacterium,Firmicutes,1,qualitative_removal,reductive dehalogenation; metal reduction,True,Metal reduction reported. Efficiency unverified here.
+Paenibacillus,Firmicutes,1,tolerance_only,biosorption; sporulation,True,Metal tolerance reported. Efficiency unverified here.
+Lysinibacillus,Firmicutes,1,qualitative_removal,biosorption (documented metal-resistant isolates),True,Metal-tolerant isolates reported. Efficiency unverified here.
+Enterococcus,Firmicutes,1,tolerance_only,biosorption,True,Metal tolerance reported. Efficiency unverified here.
+Clostridium,Firmicutes,1,tolerance_only,metal reduction; sulfide production,True,Metal transformations reported. Efficiency unverified here.
+Flavobacterium,Bacteroidetes,1,tolerance_only,biosorption,True,Metal tolerance reported. Efficiency unverified here.
+Nitrospira,Nitrospirae,1,tolerance_only,nitrogen cycling; indirect metal speciation,True,Indirect role; tolerance reported. Removal link weak - flagged for curator review.

@@ -1,0 +1,218 @@
+project:
+  name: heavy-metal-removal-mlp
+  version: "1.0.0"
+  seed: 42
+  data_dir: data
+  results_dir: results
+
+acquisition:
+  # Order of attempted acquisition strategies. The first strategy that yields
+  # >= mgnify.min_samples usable samples wins.
+  strategy_order:
+    - mgnify_r          # Bioconductor MGnifyR (spec-preferred): MgnifyClient + doQuery + getResult(output="phyloseq")
+    - mgnify_rest       # Pure-Python equivalent of the same MGnify query (no R required)
+    - sra_dada2         # NCBI SRA -> cutadapt -> DADA2 -> SILVA 138.1 (R)
+    - simulate          # Deterministic offline surrogate; ALWAYS flagged as SIMULATED
+
+  mgnify:
+    base_url: https://www.ebi.ac.uk/metagenomics/api/v1
+    biome_lineage: root:Engineered:Wastewater
+    biome_lineage_hints:
+      - root:Engineered:Wastewater
+      - root:Engineered:Wastewater:Activated Sludge
+    experiment_type: amplicon
+    # Genus-level taxonomy source:
+    #   otu_table      - per-analysis *_SSU_OTU.tsv download (full MAPseq assignment,
+    #                    ~4x more genera resolved than the summary endpoint)
+    #   taxonomy_ssu   - /taxonomy/ssu REST summary (rank-collapsed, lower resolution)
+    taxonomy_source: otu_table
+    page_size: 100
+    min_samples: 200
+    max_studies: 200
+    max_analyses: 260
+    request_timeout: 90
+    retries: 3
+    backoff_seconds: 2.0
+    sleep_between_requests: 0.15
+    taxonomy_rank: genus
+
+  r_scripts:
+    mgnify: r/mgnify_retrieval.R
+    dada2: r/dada2_sra_pipeline.R
+    rscript_bin: Rscript
+
+  sra:
+    accessions: []
+    trunc_len: [240, 160]
+    max_ee: [2, 2]
+    trunc_q: 2
+    min_len: 50
+    max_expected_errors: 2
+    remove_chimeras: true
+    remove_mitochondria: true
+    remove_chloroplast: true
+    remove_unclassified: true
+    silva_train_set: silva_nr99_v138.1_train_set.fa.gz
+    silva_species_assignment: silva_species_assignment_v138.1.fa.gz
+    silva_release: "138.1"
+    ref_download_urls:
+      - https://zenodo.org/records/4587955/files/silva_nr99_v138.1_train_set.fa.gz
+      - https://zenodo.org/records/4587955/files/silva_species_assignment_v138.1.fa.gz
+    threads: 8
+    workdir: data/raw/sra
+
+  simulate:
+    n_samples: 240
+    n_genera: 320
+    sparsity: 0.86
+    n_phyla: 12
+    dirichlet_alpha: 0.35
+    seed: 42
+
+preprocessing:
+  min_mean_relative_abundance: 0.001
+  min_prevalence: 0.02
+  # How "mean relative abundance" is computed for the 0.1% filter:
+  #   mean_overall      - mean across ALL samples (non-detection counts as zero).
+  #                       This is the strict reading of the study specification.
+  #   mean_when_present - mean across samples where the genus was DETECTED, paired
+  #                       with the prevalence requirement above. Conventional in
+  #                       ecology and far less punitive when pooling many studies
+  #                       with heterogeneous communities.
+  # The pipeline reports the retained genus count and label balance under whichever
+  # setting is active, so the sensitivity to this choice is always visible.
+  abundance_metric: mean_overall
+  # Samples with fewer assigned reads than this are discarded before the CLR
+  # transform, because a handful of reads cannot support a stable composition.
+  min_library_size: 50
+  clr_zero_handling: multiplicative_replacement
+  clr_pseudocount: 1.0e-6
+  standardize: true
+  feature_selection:
+    mode: auto
+    dim_threshold: 200
+    method: select_k_best
+    k: 40
+    variance_threshold: 0.0
+
+dataset:
+  # Track A: genus-level literature-supervised classification
+  track_a:
+    include_phylum_features: true
+    include_prevalence_features: true
+    min_samples_present: 5
+    drop_unclassified: true
+    test_size: 0.2
+    cv_folds: 5
+  # Track C: per-metal quantitative regression (only genera with mined efficiencies)
+  track_c:
+    enabled: true
+    min_genera: 4
+    test_size: 0.2
+    cv_folds: 5
+  # Track B: sample-level community metal-removal-potential index
+  track_b:
+    enabled: true
+    weight_source: binary_knowledge
+    pseudocount: 1.0e-6
+
+model:
+  # MLP implementation. 'torch' runs on the CUDA GPU, which is the default here so
+  # that the CPU stays free for other work. Measured on this machine at this dataset
+  # size the GPU is ~3.7x SLOWER in wall-clock than sklearn on CPU (542 ms vs 148 ms
+  # per fit) because the model is tiny (~18k parameters, ~2 MFLOP per forward pass)
+  # and kernel-launch overhead dominates on a 6-SM Max-Q part. Set backend: sklearn
+  # for the fastest possible single run. See README section 13.
+  backend: torch
+  torch:
+    device: cuda        # auto | cuda | cpu
+    dropout: 0.0        # explicit dropout, complementing early stopping
+    class_weight: null  # null | balanced (re-weights the minority positive class)
+    deterministic: true
+  cv:
+    strategy: stratified_kfold
+    folds: 5
+    shuffle: true
+  mlp_classifier:
+    hidden_layer_sizes: [64, 32]
+    activation: relu
+    solver: adam
+    alpha: 0.001
+    learning_rate: adaptive
+    learning_rate_init: 0.001
+    early_stopping: true
+    validation_fraction: 0.15
+    n_iter_no_change: 15
+    batch_size: 32
+    max_iter: 1000
+    tol: 0.0001
+  mlp_regressor:
+    hidden_layer_sizes: [64, 32]
+    activation: relu
+    solver: adam
+    alpha: 0.001
+    learning_rate: adaptive
+    learning_rate_init: 0.001
+    early_stopping: true
+    validation_fraction: 0.15
+    n_iter_no_change: 15
+    batch_size: 32
+    max_iter: 1000
+  grid:
+    enabled: true
+    param_grid:
+      hidden_layer_sizes: [[32], [64, 32], [128, 64], [64, 32, 16], [256, 128]]
+      alpha: [0.0001, 0.001, 0.01]
+      learning_rate_init: [0.001, 0.01]
+      # early_stopping is the study-specified regularisation route (dropout by
+      # early stopping). It is also searched against False because with only ~92
+      # training rows the 15% internal validation split holds very few positives
+      # and can stop training at an arbitrary epoch.
+      early_stopping: [true, false]
+    scoring: roc_auc
+    refit: true
+    # -1 parallelises across every CPU core. That is the fastest option for the
+    # sklearn backend, but it spawns one worker per core and is the main source of
+    # CPU/memory pressure. The torch backend on CUDA forces this to 1 automatically,
+    # because several workers contending for one 4 GiB GPU is slower and riskier.
+    n_jobs: 1
+  baselines:
+    - random_forest
+    - xgboost
+    - logistic_regression
+  random_forest:
+    n_estimators: 400
+    max_depth: null
+    min_samples_leaf: 1
+  xgboost:
+    n_estimators: 400
+    max_depth: 4
+    learning_rate: 0.05
+    subsample: 0.8
+    colsample_bytree: 0.8
+  logistic_regression:
+    C: 1.0
+    max_iter: 2000
+
+evaluation:
+  metrics_classification: [accuracy, precision, recall, f1, roc_auc, average_precision, mcc]
+  metrics_regression: [r2, rmse, mae, spearman]
+  permutation_importance:
+    n_repeats: 30
+    max_features: 25
+  shap:
+    enabled: true
+    max_features: 25
+    max_samples: 200
+  plots:
+    dpi: 200
+    learning_curve_epochs: true
+    formats: [png]
+
+validation:
+  # In-house biofilm samples: external holdout (never used for training)
+  samples: [SM, OS]
+  treat_bdl_disappearance_as_full_removal: true
+  treat_bdl_appearance_as_zero_removal: true
+  clamp_negative_removal: false
+  n_bootstrap: 2000

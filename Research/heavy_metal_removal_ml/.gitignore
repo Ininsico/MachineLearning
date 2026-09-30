@@ -1,0 +1,25 @@
+# Data / model artifacts
+data/raw/**
+data/interim/**
+data/processed/**
+results/**
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+!results/.gitkeep
+!results/**/.gitkeep
+
+# Keep curated literature tables under version control
+!data/literature/**
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# OS / editors
+Thumbs.db
+.DS_Store

@@ -1,0 +1,200 @@
+{
+  "pipeline_version": "1.0.0",
+  "config_fingerprint": "43e2c88ead5737e9",
+  "seed": 42,
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "sklearn": "1.9.0",
+  "numpy": "2.5.1",
+  "pandas": "3.0.5",
+  "mlp_backend": "torch",
+  "mlp_device": "cuda (NVIDIA GeForce GTX 1050 Ti with Max-Q Design, 6 SMs, sm_61)",
+  "cv_folds_used": 5,
+  "minority_class_count": 8,
+  "trainable": true,
+  "confusion_summary": {
+    "true_negative": 21.0,
+    "false_positive": 0.0,
+    "false_negative": 0.0,
+    "true_positive": 2.0,
+    "sensitivity": 1.0,
+    "specificity": 1.0,
+    "balanced_accuracy": 1.0,
+    "n": 23.0
+  },
+  "acquisition": {
+    "info": {
+      "status": "ok_cached",
+      "source": "MGnify REST API",
+      "n_studies": 6,
+      "n_samples": 250,
+      "n_genera": 1643,
+      "n_http_requests": 545,
+      "biome_lineages": [
+        "root:Engineered:Wastewater",
+        "root:Engineered:Wastewater:Activated Sludge"
+      ],
+      "cache_sha256_16": "56b5ac4994c58fd6"
+    },
+    "attempts": [
+      {
+        "strategy": "mgnify_rest",
+        "status": "ok_cached",
+        "n_samples": 250,
+        "n_genera": 1643,
+        "accepted": true,
+        "seconds": 0.04
+      }
+    ],
+    "n_samples": 250,
+    "n_genera": 1643,
+    "simulated": false
+  },
+  "track_a_shape": [
+    114,
+    255
+  ],
+  "track_a_label_balance": {
+    "positive": 10,
+    "negative": 104
+  },
+  "best_params": {
+    "alpha": 0.01,
+    "early_stopping": false,
+    "hidden_layer_sizes": [
+      128,
+      64
+    ],
+    "learning_rate_init": 0.01
+  },
+  "holdout_metrics": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "mcc": 1.0,
+    "roc_auc": 1.0,
+    "average_precision": 1.0,
+    "threshold": 0.1755950003862381
+  },
+  "cv_model_comparison": {
+    "accuracy": {
+      "mlp_tuned": NaN,
+      "random_forest_classifier": 0.9444444444444444,
+      "xgboost_classifier": 0.9122807017543859,
+      "mlp_default": 0.9333333333333332
+    },
+    "precision": {
+      "mlp_tuned": NaN,
+      "random_forest_classifier": 0.4,
+      "xgboost_classifier": 0.0,
+      "mlp_default": 0.4
+    },
+    "recall": {
+      "mlp_tuned": NaN,
+      "random_forest_classifier": 0.3,
+      "xgboost_classifier": 0.0,
+      "mlp_default": 0.3
+    },
+    "f1": {
+      "mlp_tuned": NaN,
+      "random_forest_classifier": 0.3333333333333333,
+      "xgboost_classifier": 0.0,
+      "mlp_default": 0.3333333333333333
+    },
+    "roc_auc": {
+      "mlp_tuned": 0.9529411764705882,
+      "random_forest_classifier": 0.9411764705882353,
+      "xgboost_classifier": 0.9058823529411765,
+      "mlp_default": 0.8566176470588236
+    },
+    "average_precision": {
+      "mlp_tuned": NaN,
+      "random_forest_classifier": 0.74,
+      "xgboost_classifier": 0.6952380952380952,
+      "mlp_default": 0.5316666666666666
+    }
+  },
+  "feature_group_ablation": {
+    "n_features": {
+      "full_model": 255,
+      "abundance_only": 248,
+      "phylum_only": 5,
+      "prevalence_only": 2,
+      "abundance_plus_prevalence": 250
+    },
+    "accuracy": {
+      "full_model": 0.9296442687747035,
+      "abundance_only": 0.8849802371541502,
+      "phylum_only": 1.0,
+      "prevalence_only": 0.9122529644268773,
+      "abundance_plus_prevalence": 0.8849802371541502
+    },
+    "average_precision": {
+      "full_model": 0.6177777777777778,
+      "abundance_only": 0.13623644471470558,
+      "phylum_only": 1.0,
+      "prevalence_only": 0.23719298245614034,
+      "abundance_plus_prevalence": 0.13742692090518177
+    },
+    "f1": {
+      "full_model": 0.3,
+      "abundance_only": 0.0,
+      "phylum_only": 1.0,
+      "prevalence_only": 0.0,
+      "abundance_plus_prevalence": 0.0
+    },
+    "precision": {
+      "full_model": 0.3,
+      "abundance_only": 0.0,
+      "phylum_only": 1.0,
+      "prevalence_only": 0.0,
+      "abundance_plus_prevalence": 0.0
+    },
+    "recall": {
+      "full_model": 0.3,
+      "abundance_only": 0.0,
+      "phylum_only": 1.0,
+      "prevalence_only": 0.0,
+      "abundance_plus_prevalence": 0.0
+    },
+    "roc_auc": {
+      "full_model": 0.8421428571428571,
+      "abundance_only": 0.42214285714285715,
+      "phylum_only": 1.0,
+      "prevalence_only": 0.4742857142857143,
+      "abundance_plus_prevalence": 0.4321428571428571
+    }
+  },
+  "external_validation": [
+    {
+      "sample_id": "OS",
+      "scorable": true,
+      "predicted_activity_score": 0.9946827292442322,
+      "ci_low": 0.9946827292442322,
+      "ci_high": 0.9946827292442322,
+      "null_mean": 0.9946827292442322,
+      "null_p_value": 1.0,
+      "documented_active_fraction": 1.0,
+      "annotated_fraction_of_community": 0.32120000000000004,
+      "taxonomy_coverage": 0.3991053677932406,
+      "n_scored_genera": 1,
+      "note": "only one genus was scorable, so the bootstrap confidence interval is degenerate (zero width) and the shuffled null is uninformative"
+    },
+    {
+      "sample_id": "SM",
+      "scorable": false,
+      "predicted_activity_score": NaN,
+      "ci_low": NaN,
+      "ci_high": NaN,
+      "null_mean": NaN,
+      "null_p_value": NaN,
+      "documented_active_fraction": NaN,
+      "annotated_fraction_of_community": NaN,
+      "taxonomy_coverage": 0.0,
+      "n_scored_genera": 0,
+      "note": "none of the 1 genera in SM occur in the training taxonomy (114 genera), so the trained classifier cannot score this sample"
+    }
+  ],
+  "data_provenance_warning": null
+}

@@ -1,0 +1,13 @@
+sample_id,genus,species,rel_abundance_pct,note
+SM,Bacillus,Bacillus stratosphericus,99.99,"Dominant taxon of in-house biofilm SM"
+SM,other_unclassified,,0.01,"Residual fraction to close the composition to 100%"
+OS,Raoultella,Raoultella ornithinolytica,41.60,
+OS,Pseudomonas,Pseudomonas veronii,27.67,
+OS,other_unclassified,,18.95,"Unclassified reads reported by the user"
+OS,Pseudomonas,Pseudomonas marginalis,4.45,
+OS,Microvirgula,Microvirgula curvata,2.24,
+OS,Enterobacter,Enterobacter cloacae,1.97,
+OS,Klebsiella,Klebsiella oxytoca,1.05,
+OS,Delftia,Delftia tsuruhatensis,0.86,
+OS,Chryseobacterium,Chryseobacterium indologenes,0.64,
+OS,other_unspecified,,0.57,"Residual fraction to close the composition to 100%"

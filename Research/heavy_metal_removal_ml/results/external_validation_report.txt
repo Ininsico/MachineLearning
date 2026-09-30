@@ -1,0 +1,24 @@
+EXTERNAL VALIDATION SUMMARY (n = 2 in-house biofilms)
+--------------------------------------------------------------------------
+Metals measured            : 9
+Metals removed (>5%)       : 6 (As, Ca, Fe, Hg, Pb, Zn)
+Metals released (net < -5%): 2 (Mn, Ni)
+Below detections (100%)    : 2 (Fe, Zn)
+
+OS: predicted activity score 0.995 [0.995-0.995] from 1 scorable genus/genera covering 39.9% of community mass; documented-active fraction 1.000; shuffled-null p=1.000
+    caveat: only one genus was scorable, so the bootstrap confidence interval is degenerate (zero width) and the shuffled null is uninformative
+SM: NOT SCORABLE by the trained classifier - none of the 1 genera in SM occur in the training taxonomy (114 genera), so the trained classifier cannot score this sample
+
+Literature-expected vs observed removal across 4 metal/sample pairs: Pearson r = 0.776, Spearman rho = 1.000
+
+INTERPRETATION LIMITS THAT MUST BE CARRIED INTO THE THESIS
+  * n = 2 biofilms. They test that the pipeline runs end-to-end on real samples and that the
+    outputs are physically plausible; they cannot establish generalisability.
+  * The activity score is a curated-literature index aggregated by abundance. It measures
+    'how much of this community belongs to genera reported as metal-active', NOT a predicted
+    removal percentage for a given metal.
+  * Net release of Mn and Ni and the appearance of Cr were observed. A capability-based index
+    cannot anticipate release, because release is not represented in the literature label set.
+    This is a genuine model limitation, not a measurement artefact.
+  * The single strong agreement (Bacillus-dominated SM vs arsenate/arsenite removal) is one
+    metal in one sample and is not independent evidence across the nine metals.

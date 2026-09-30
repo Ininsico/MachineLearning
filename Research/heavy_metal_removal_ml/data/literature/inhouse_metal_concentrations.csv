@@ -1,0 +1,19 @@
+sample_id,metal,before_mg_L,after_mg_L,before_bdl,after_bdl,note
+SM,Hg,31.23,6.350,FALSE,FALSE,
+SM,Pb,0.075,0.030,FALSE,FALSE,
+SM,As,0.780,0.025,FALSE,FALSE,
+SM,Ni,0.006,0.011,FALSE,FALSE,"Concentration increases: net release, not removal"
+SM,Fe,0.155,,FALSE,TRUE,"Metal disappears below detection limit"
+SM,Ca,13.79,8.665,FALSE,FALSE,
+SM,Zn,0.791,,FALSE,TRUE,"Metal disappears below detection limit"
+SM,Mn,0.130,0.523,FALSE,FALSE,"Concentration increases: net release, not removal"
+SM,Cr,,0.030,TRUE,FALSE,"Metal appears from below detection: treated as 0% removal per protocol"
+OS,Hg,31.23,6.350,FALSE,FALSE,
+OS,Pb,0.075,0.030,FALSE,FALSE,
+OS,As,0.780,0.025,FALSE,FALSE,
+OS,Ni,0.006,0.011,FALSE,FALSE,"Concentration increases: net release, not removal"
+OS,Fe,0.155,,FALSE,TRUE,"Metal disappears below detection limit"
+OS,Ca,13.79,8.665,FALSE,FALSE,
+OS,Zn,0.791,,FALSE,TRUE,"Metal disappears below detection limit"
+OS,Mn,0.130,0.523,FALSE,FALSE,"Concentration increases: net release, not removal"
+OS,Cr,,0.030,TRUE,FALSE,"Metal appears from below detection: treated as 0% removal per protocol"
